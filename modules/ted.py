@@ -15,7 +15,7 @@ class Ted(object):
     _data = None
 
     def __init__(self, filename=None):
-        """ Data will be loaded     in memory until needed. """
+        """ Data will not be loaded in memory until needed. """
         self._filename = filename
 
     def _load(self, lambda_):
