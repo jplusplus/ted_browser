@@ -1,0 +1,9 @@
+csvkit==0.9.1
+dbf==0.94.3
+jdcal==1.2
+openpyxl==2.2.0b1
+python-dateutil==2.2
+requests==2.9.1
+six==1.10.0
+SQLAlchemy==1.0.12
+xlrd==0.9.4
