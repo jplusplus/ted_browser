@@ -6,6 +6,18 @@ DOCUMENTS_URL = 'http://ted.openspending.org/data/ted-documents.csv'
 CONTRACTS_URL = 'http://ted.openspending.org/data/ted-contracts.csv'
 
 
+def in_range(val, min_, max_):
+    """ Check if val is in range """
+    try:
+        numval = int(val.strip())
+    except ValueError:
+        return False
+
+    if numval >= min and numval < max:
+        return True
+    return False
+
+
 class Ted(object):
     """ Represents tabular ted data from
         http://ted.openspending.org/#get-the-data
@@ -51,7 +63,7 @@ class Ted(object):
             """ This filter singles out rows with security related CPV codes, i.e.
                 the 35XXXXX cluster, except flags and flagpoles
             """
-            filter_function = lambda row: True if int(row["contract_cpv_code"]) >= 3500000 and int(row["contract_cpv_code"]) < 35821000 else False
+            filter_function = lambda row: True if in_range(row["contract_cpv_code"], 35000000, 35821000) else False
 
         if self._data is None:
             self._load(filter_function)
