@@ -13,7 +13,7 @@ def in_range(val, min_, max_):
     except ValueError:
         return False
 
-    if numval >= min and numval < max:
+    if numval >= min_ and numval < max_:
         return True
     return False
 
